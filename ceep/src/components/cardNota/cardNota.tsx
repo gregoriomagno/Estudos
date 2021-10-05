@@ -1,5 +1,5 @@
 import * as React from 'react';
-import "./cardNota.css"
+import "./estilo.css"
 
 
 class CardNota extends React.Component {
