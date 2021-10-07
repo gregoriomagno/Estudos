@@ -1,23 +1,23 @@
 import React, { useState, createContext } from "react";
-import { Nota } from "../models/nota";
+import { Categoria } from "../models/categoria";
 
 
 
 
-type PropsNotaContext = {
-  state: Array<Nota>;
-  setState: React.Dispatch<React.SetStateAction<Array<Nota>>>;
+type PropsContext = {
+  state: Array<Categoria>;
+  setState: React.Dispatch<React.SetStateAction<Array<Categoria>>>;
 };
 
 const DEFAULT_VALUE = {
   state: [],
   setState: ()=>{},
 };
-const NotaContext = createContext<PropsNotaContext>(DEFAULT_VALUE);
+const NotaContext = createContext<PropsContext>(DEFAULT_VALUE);
 
 const NotaContextProvider: React.FC = ({children}) =>{
 
-    const [state,setState] = useState<Array<Nota>>(DEFAULT_VALUE.state);
+    const [state,setState] = useState<Array<Categoria>>(DEFAULT_VALUE.state);
 
     return(
 

@@ -2,19 +2,29 @@ import { Section, Header, H3, P } from "./style";
 import { ReactComponent as DeleteSVG } from "../../assets/img/delete.svg";
 import { useContext } from "react";
 import NotaContext from "../../store/Context";
-import { Nota } from "../../models/nota";
-function CardNota(props: { titulo: string; texto: string; id: number }) {
+import { Categoria } from "../../models/categoria";
+function CardNota(props: {
+  titulo: string;
+  texto: string;
+  id: number;
+  categoria: string;
+}) {
   const { state, setState } = useContext(NotaContext);
 
   const deleteNota = (evento: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
-    let auxArray: Array<Nota> = [...state];
+    state.forEach((categoria, index) => {
+      if (categoria.titulo === props.categoria) {
+        let auxArray: Array<Categoria> = [...state];
+        auxArray[index].notas = [
+          ...auxArray[index].notas.filter((element) => {
+            return element.id !== props.id;
+          }),
+        ];
 
-    setState([
-      ...auxArray.filter((element) => {
-        return element.id !== props.id;
-      }),
-    ]);
-    console.log("delete");
+        setState(auxArray);
+        console.log("delete");
+      }
+    });
   };
 
   return (

@@ -2,11 +2,13 @@ export class Nota {
   private _id: number;
   private _titulo : string;
   private _texto : string;
+  private _categoria: string;
   private static _numeroNotasCriadas = 0;
 
-  constructor(titulo: string, texto: string) {
+  constructor(titulo: string, texto: string, categoria: string) {
     this._titulo = titulo;
     this._texto = texto;
+    this._categoria = categoria;
     this._id = Nota._numeroNotasCriadas;
     Nota._numeroNotasCriadas++;
   }
@@ -19,7 +21,9 @@ export class Nota {
   get texto(): string {
     return this._texto;
   }
-
+  get categoria(): string {
+    return this._categoria;
+  }
   set titulo(titulo: string) {
     this._titulo = titulo;
   }

@@ -9,7 +9,10 @@ export const Form = styled.form`
     flex-direction: column;
     padding: 12px 40px;
 `;
-
+export const Select = styled.select `
+    margin-top: 10px;
+    margin-bottom: 10px;
+`;
 export const TextArea = styled.textarea`
     margin-top: 8px;
     padding: 4px;
