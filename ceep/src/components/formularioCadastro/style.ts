@@ -1,5 +1,6 @@
-.form-cadastro{
-    /* background-color: royalblue; */
+import styled from 'styled-components';
+
+export const Form = styled.form`
     flex-grow: 2;
     box-shadow:  0 0 4px rgba(0,0,0, 0.3);
     z-index: 1;
@@ -7,25 +8,28 @@
     display: flex;
     flex-direction: column;
     padding: 12px 40px;
-}
+`;
 
-.form-cadastro_input{
+export const TextArea = styled.textarea`
     margin-top: 8px;
     padding: 4px;
     border:  none;
     background-color: var(--fundo-detalhes);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
-}
+`;
 
-.form-cadastro_submit {
+export const Button = styled.button`
+    margin-top: 8px;
+    padding: 4px;
+    border:  none;
     align-self: flex-end;
     width: 30%;
     background-color: var(--secundaria);
     color:white;
     font-weight: 400;
-}
 
-.form-cadastro_submit:active {
-    background-color: var(--secundaria-ativa);
-}
+    &:active {
+        background-color: var(--secundaria-ativa);
+    }
+`;

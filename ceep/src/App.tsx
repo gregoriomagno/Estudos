@@ -1,22 +1,19 @@
-import React, { Component } from 'react';
-import  FormularioCadastro from './components/formularioCadastro/';
-import  ListaDeNotas  from './components/listaDeNotas/';
-import './assets/index.css';
-import './assets/app.css';
+import React from "react";
+import FormularioCadastro from "./components/formularioCadastro/";
+import ListaDeNotas from "./components/listaDeNotas";
+import { Section, Main } from "./style";
+import { NotaContextProvider } from "./store/Context";
+import ListaDeCategorias from "./components/ListaDeCategorias/";
 
-class App extends Component {
-  render() {
-    return (
-      <section className="conteudo">
-
-        <FormularioCadastro/>
-
+const App: React.FC = () => (
+  <NotaContextProvider>
+    <Section>
+      <FormularioCadastro />
+      <Main>
+        <ListaDeCategorias />
         <ListaDeNotas />
-
-      </section>
-    );
-  }
-
-}
-
+      </Main>
+    </Section>
+  </NotaContextProvider>
+);
 export default App;

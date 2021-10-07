@@ -1,22 +1,31 @@
-import * as React from 'react';
-import "./estilo.css"
+import { Section, Header, H3, P } from "./style";
+import { ReactComponent as DeleteSVG } from "../../assets/img/delete.svg";
+import { useContext } from "react";
+import NotaContext from "../../store/Context";
+import { Nota } from "../../models/nota";
+function CardNota(props: { titulo: string; texto: string; id: number }) {
+  const { state, setState } = useContext(NotaContext);
 
+  const deleteNota = (evento: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+    let auxArray: Array<Nota> = [...state];
 
-class CardNota extends React.Component {
+    setState([
+      ...auxArray.filter((element) => {
+        return element.id !== props.id;
+      }),
+    ]);
+    console.log("delete");
+  };
 
-     
-    render() {
-        return (
-            
-                <section className="card-nota">
-                    <header className="card-nota_cabecalho">
-                        <h3 className="card-nota_titulo">Título</h3>
-                    </header>
-                    <p className= "card-nota_texto">Escreva sua nota</p>
-                </section>
-           
-        );
-    }
+  return (
+    <Section>
+      <Header>
+        <H3>{props.titulo}</H3>
+        <DeleteSVG onClick={deleteNota} />
+      </Header>
+      <P>{props.texto}</P>
+    </Section>
+  );
 }
 
 export default CardNota;
