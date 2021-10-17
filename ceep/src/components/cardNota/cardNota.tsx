@@ -32,6 +32,7 @@ function CardNota(props: {
       <Header>
         <H3>{props.titulo}</H3>
         <DeleteSVG onClick={deleteNota} />
+        <h4>{props.categoria}</h4>
       </Header>
       <P>{props.texto}</P>
     </Section>
